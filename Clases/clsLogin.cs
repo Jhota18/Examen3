@@ -73,7 +73,7 @@ namespace Examen3.Clases
                            Autenticado = true,
                            Nombre = A.NombreCompleto,
                            Token = token,
-                           Mensaje = ""
+                           Mensaje = "" 
                        };
             }
             else
