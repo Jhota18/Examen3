@@ -173,6 +173,11 @@
     <Compile Include="Models\Administrador.cs">
       <DependentUpon>DBExamen3.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBExamen3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBExamen3.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBExamen3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,27 +189,6 @@
       <DependentUpon>DBExamen3.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Evento.cs">
-      <DependentUpon>DBExamen3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\models\Administrador.cs">
-      <DependentUpon>DBExamen3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\models\DBExamen3.Context.cs" />
-    <Compile Include="Models\models\DBExamen3.cs" />
-    <Compile Include="Models\models\DBExamen3.Designer.cs">
-      <DependentUpon>DBExamen3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\models\DBExamen31.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBExamen3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\models\DBExamen31.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBExamen3.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\models\Evento.cs">
       <DependentUpon>DBExamen3.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,14 +213,15 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DBExamen3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBExamen3.edmx</DependentUpon>
+      <LastGenOutput>DBExamen3.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\DBExamen3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBExamen3.edmx</DependentUpon>
       <LastGenOutput>DBExamen3.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\models\DBExamen3.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DBExamen31.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -268,13 +253,6 @@
       <LastGenOutput>DBExamen3.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\DBExamen3.edmx.diagram">
-      <DependentUpon>DBExamen3.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\models\DBExamen3.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBExamen31.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\models\DBExamen3.edmx.diagram">
       <DependentUpon>DBExamen3.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />

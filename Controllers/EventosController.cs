@@ -56,6 +56,13 @@ namespace Examen3.Controllers
         [Route("Insertar")]
         public string Insertar([FromBody] Evento evento)
         {
+            using (var db = new DBExamen3Entities())
+            {
+                if (!db.Administradors.Any(a => a.idAdministrador == evento.idAdministrador))
+                {
+                    return "Error: The specified idAdministrador does not exist.";
+                }
+            }
             clsEvento clsEvento = new clsEvento();
             clsEvento.evento = evento;
             return clsEvento.Insertar();

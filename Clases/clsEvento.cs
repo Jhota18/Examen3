@@ -26,6 +26,7 @@ namespace Examen3.Clases
             }
         }
 
+
         public Evento Consultar(int Id_eve)
         {
             Evento eve = dbExamen3.Eventos.FirstOrDefault(v => v.idEventos == Id_eve);
