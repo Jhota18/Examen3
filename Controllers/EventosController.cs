@@ -44,12 +44,15 @@ namespace Examen3.Controllers
             return clsEvento.ConsultarXFecha(fecha);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("ConsultarXTNF")]
-        public Evento ConsultarXTNF(string tipo, string nombre, DateTime fecha)
+        public Evento ConsultarXTNF([FromBody] FiltroEvento filtro)
         {
-            clsEvento clsEvento = new clsEvento();
-            return clsEvento.ConsultarXTNF(tipo, nombre, fecha);
+            var db = new DBExamen3Entities();
+            return db.Eventos.FirstOrDefault(v =>
+                v.TipoEvento == filtro.Tipo &&
+                v.NombreEvento == filtro.Nombre &&
+                v.FechaEvento == filtro.Fecha);
         }
 
         [HttpPost]
@@ -90,4 +93,11 @@ namespace Examen3.Controllers
         }
 
     }
+}
+
+public class FiltroEvento
+{
+    public string Tipo { get; set; }
+    public string Nombre { get; set; }
+    public DateTime Fecha { get; set; }
 }
