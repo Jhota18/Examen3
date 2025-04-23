@@ -228,6 +228,11 @@
     <Compile Include="Models\Administrador.cs">
       <DependentUpon>DBExamen3.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBExamen3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBExamen3.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBExamen3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -285,6 +290,11 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DBExamen3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBExamen3.edmx</DependentUpon>
+      <LastGenOutput>DBExamen3.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\DBExamen3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBExamen3.edmx</DependentUpon>

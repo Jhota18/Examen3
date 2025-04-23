@@ -20,7 +20,7 @@ namespace Examen3.Models
             this.Eventos = new HashSet<Evento>();
         }
     
-        public int idAministrador { get; set; }
+        public int idAdministrador { get; set; }
         public string Documento { get; set; }
         public string NombreCompleto { get; set; }
         public string Usuario { get; set; }
