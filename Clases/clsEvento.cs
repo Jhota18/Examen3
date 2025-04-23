@@ -32,6 +32,29 @@ namespace Examen3.Clases
             return eve;
 
         }
+        public Evento ConsultarXtipo(string tipoEv)
+        {
+            Evento eve = dbExamen3.Eventos.FirstOrDefault(v => v.TipoEvento == tipoEv);
+            return eve;
+
+        }
+        public Evento ConsultarXNombre(string nombre)
+        {
+            Evento eve = dbExamen3.Eventos.FirstOrDefault(v => v.NombreEvento == nombre);
+            return eve;
+
+        }
+        public Evento ConsultarXFecha(DateTime fecha)
+        {
+            Evento eve = dbExamen3.Eventos.FirstOrDefault(v => v.FechaEvento == fecha);
+            return eve;
+        }
+        public Evento ConsultarXTNF(string tipo, string nombre, DateTime fecha)
+        {
+            Evento eve = dbExamen3.Eventos.FirstOrDefault(v => v.NombreEvento == nombre&&v.NombreEvento==nombre&&v.FechaEvento==fecha);
+            return eve;
+
+        }
 
         public List<Evento> ConsultarTodas()
         {
