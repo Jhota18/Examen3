@@ -54,6 +54,7 @@ namespace Examen3.Controllers
 
         [HttpPost]
         [Route("Insertar")]
+        [Authorize]
         public string Insertar([FromBody] Evento evento)
         {
             using (var db = new DBExamen3Entities())
@@ -70,6 +71,7 @@ namespace Examen3.Controllers
 
         [HttpPut]
         [Route("Actualizar")]
+        [Authorize]
         public string Actualizar([FromBody] Evento evento)
         {
             clsEvento clsEvento = new clsEvento();
@@ -79,6 +81,7 @@ namespace Examen3.Controllers
 
         [HttpDelete]
         [Route("Eliminar")]
+        [Authorize]
         public string Eliminar([FromBody] Evento evento)
         {
             clsEvento clsEvento = new clsEvento();
