@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBExamen3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBExamen3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrador">
           <Key>
             <PropertyRef Name="idAdministrador" />
@@ -48,7 +48,8 @@
             <End Role="Eventos" EntitySet="Eventos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBExamen3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -61,7 +62,7 @@
           <Property Name="NombreCompleto" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Eventos" Relationship="DBExamen3Model.FK_Eventos_Administrador" FromRole="Administrador" ToRole="Evento" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK_Eventos_Administrador" FromRole="Administrador" ToRole="Eventos" />
         </EntityType>
         <EntityType Name="Evento">
           <Key>
@@ -75,28 +76,28 @@
           <Property Name="FechaEvento" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Sede" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ActiviadesPlaneadas" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Administrador" Relationship="DBExamen3Model.FK_Eventos_Administrador" FromRole="Evento" ToRole="Administrador" />
+          <NavigationProperty Name="Administrador" Relationship="Self.FK_Eventos_Administrador" FromRole="Eventos" ToRole="Administrador" />
         </EntityType>
-        <EntityContainer Name="DBExamen3Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Administradors" EntityType="Self.Administrador" />
-          <EntitySet Name="Eventos" EntityType="Self.Evento" />
-          <AssociationSet Name="FK_Eventos_Administrador" Association="DBExamen3Model.FK_Eventos_Administrador">
-            <End Role="Administrador" EntitySet="Administradors" />
-            <End Role="Evento" EntitySet="Eventos" />
-          </AssociationSet>
-        </EntityContainer>
         <Association Name="FK_Eventos_Administrador">
-          <End Type="DBExamen3Model.Administrador" Role="Administrador" Multiplicity="1" />
-          <End Type="DBExamen3Model.Evento" Role="Evento" Multiplicity="*" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+          <End Role="Eventos" Type="Self.Evento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Administrador">
               <PropertyRef Name="idAdministrador" />
             </Principal>
-            <Dependent Role="Evento">
+            <Dependent Role="Eventos">
               <PropertyRef Name="idAdministrador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="DBExamen3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administradors" EntityType="Self.Administrador" />
+          <EntitySet Name="Eventos" EntityType="Self.Evento" />
+          <AssociationSet Name="FK_Eventos_Administrador" Association="Self.FK_Eventos_Administrador">
+            <End Role="Administrador" EntitySet="Administradors" />
+            <End Role="Eventos" EntitySet="Eventos" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
